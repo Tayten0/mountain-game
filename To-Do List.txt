@@ -1,6 +1,0 @@
-Replace objects with images
-- Images don't correctly align with object positions
-
-Reorganize platform variables into objects
-
-Playtest to look for bugs
