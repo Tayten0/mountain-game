@@ -1,0 +1,500 @@
+/* All text in the game is set to use VT323 for the font */
+body {
+  font-family: 'VT323', monospace;
+}
+
+button {
+  font-family: 'VT323', monospace;
+}
+
+/*Main Menu Page Settings*/
+#home {
+  background-color: darkslategray;
+  background-image: url(zSubway.gif);
+  background-size: contain;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/*The Fullscreen Notice*/
+#notice {
+  width: 55vw;
+  height: 40vh;
+  background-color: white;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/*"ATTENTION"*/
+#atten {
+  color: red;
+  font-size: 35px;
+}
+
+/*Text inside the fullscreen notice*/
+#attenPara {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+/*Button inside the fullscreen notice*/
+#okayButton {
+  width: 15vw;
+  height: 6vh;
+  border-width: 3px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  text-align: center;
+  font-size: 35px;
+}
+
+/*Div box containing the game title*/
+#gameName {
+  width: 50vw;
+  height: 20vh;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  position: absolute;
+  top: 5vh;
+  left: 50vw;
+  transform: translate(-50%, -5%);
+  text-align: center;
+  font-size: 30px;
+}
+
+/*Div box with the game credits*/
+#credits {
+  width: 50vw;
+  height: 50vh;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-size: 20px;
+  visibility: hidden;
+}
+
+/*Congratulations text in credits*/
+#congratCredit {
+  text-align: center;
+}
+
+/*Credits title*/
+#creditsTitle {
+  text-align: center;
+  font-size: 35px;
+  margin: 0;
+  padding: 0 0 15px;
+  line-height: 15px;
+}
+
+/*Div box holding the actual game credits*/
+#creditsBox {
+  width: 50vw;
+  height: 25vh;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 57%;
+  left: 50%;
+  transform: translate(-50%, -57%);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/*The game credits*/
+#creditsList {
+  list-style-type: none;
+}
+
+/*Credits music section label*/
+#creditMusic {
+  font-size: 25px;
+  padding: 0px 0 0 3px;
+}
+
+/*Credits images section label*/
+#creditImage {
+  font-size: 25px;
+  padding: 7px 0 0 3px;
+}
+
+/*Button inside the credits screen*/
+#creditButton {
+  width: 15vw;
+  height: 6vh;
+  border-width: 3px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  text-align: center;
+  font-size: 35px;
+}
+
+/*Div box holding main menu buttons*/
+#buttonsBox {
+  width: 20vw;
+  height: 50vh;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  visibility: hidden;
+}
+
+/*Main menu buttons*/
+.buttonsBoxButton {
+  width: 15vw;
+  height: 7vh;
+  border-width: 3px;
+  font-size: 25px;
+}
+
+/*Start button*/
+#start {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+}
+
+/*Settings button*/
+#settings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*Quit button*/
+#quit {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+}
+
+/*Div box holding settings menu buttons*/
+#settingsMenu {
+  width: 20vw;
+  height: 50vh;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  visibility: hidden;
+}
+
+/*Settings menu title*/
+#settingsTitle {
+  text-align: center;
+  font-size: 35px;
+}
+
+/*Music button label*/
+#musicButtonLabel {
+  position: absolute;
+  top: 30%;
+  left: 33.5%;
+  transform: translate(-33.5%, -30%);
+  font-size: 25px;
+}
+
+/*Music setting button*/
+#music {
+  width: 5vw;
+  height: 4vh;
+  border-width: 3px;
+  position: absolute;
+  top: 36%;
+  left: 70%;
+  transform: translate(-70%, -36%);
+  font-size: 25px;
+}
+
+/*Boss Theme button label*/
+#bossThemeButtonLabel {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-15%, -50%);
+  font-size: 25px;
+}
+
+/*Sound effect setting button*/
+#bossTheme {
+  width: 7vw;
+  height: 4vh;
+  border-width: 3px;
+  position: absolute;
+  top: 56%;
+  left: 75%;
+  transform: translate(-75%, -56%);
+  font-size: 25px;
+}
+
+/*Exit button for settings menu*/
+#settingsExit {
+  width: 10vw;
+  height: 5vh;
+  border-width: 3px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  font-size: 25px;
+}
+
+
+/*Loading Screen Page Settings*/
+#loadingScreen {
+  background-color: black;
+  background-image: url(zTrainStation.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% -15%;
+  overflow: hidden;
+}
+
+/*Div box holding loading screen text*/
+#loadingBox {
+  width: 80vw;
+  height: 20vh;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  text-align: center;
+  font-size: 70px;
+}
+
+
+/* Game Canvas */
+#screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  z-index: 2;
+}
+
+/*PLayer Health Bar */
+#healthBar {
+  width: 350px;
+  height: 60px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  transform: translate(-5%,-5%);
+}
+
+/* Boss Health Bar */
+#bossHealthBar {
+  width: 350px;
+  height: 60px;
+  position: absolute;
+  top: 5%;
+  left: 95%;
+  transform: translate(-95%,-5%);
+  visibility: hidden;
+}
+/* Boss Image */
+#bossImage {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%,-5%);
+  visibility: hidden;
+  z-index: 1;
+}
+
+/*Notice on the levels page that informs the player of the controls and objective of the game*/
+#controls {
+  width: 55vw;
+  height: 45vh;
+  background-color: white;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+}
+
+/*Controls title*/
+#controlTitle {
+  text-align: center;
+  font-size: 35px;
+}
+
+/*Text inside the Controls div box*/
+#controlText {
+  font-size: 23px;
+  line-height: 25px;
+}
+
+/*Okay button inside the Controls div box*/
+#controlOkay {
+  width: 13vw;
+  height: 5vh;
+  border-width: 3px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  text-align: center;
+  font-size: 27px;
+}
+
+/*Death message box*/
+#deadBox {
+  width: 95vw;
+  height: 95vh;
+  background-color: white;
+  border-style: solid;
+  border-width: 15px;
+  border-color: black;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  visibility: hidden;
+  z-index: 3;
+}
+
+/*Text inside of death message div box*/
+#deadText {
+  font-size: 150px;
+  color: red;
+}
+
+/*Button inside of death message div box*/
+#deadOkay {
+  width: 25vw;
+  height: 15vh;
+  border-width: 5px;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  text-align: center;
+  font-size: 50px;
+}
+
+/*Level passed div box*/
+#congratulations {
+  width: 30vw;
+  height: 35vh;
+  background-color: white;
+  border-style: solid;
+  border-width: 5px;
+  border-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  visibility: hidden;
+  z-index: 3;
+}
+
+/*Level passed message*/
+#congratulationsText {
+  font-size: 60px;
+}
+
+/*Level passed button*/
+#congratsButton {
+  width: 15vw;
+  height: 7vh;
+  border-width: 3px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  text-align: center;
+  font-size: 35px;
+}
+
+/*End Screen Title*/
+#gameEnd {
+  width: 50vw;
+  height: 15vh;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  text-align: center;
+  font-size: 40px;
+  visibility: hidden;
+}
+
+/*Div Box holding the gameFinish button stuff*/
+#endGame {
+  width: 25vw;
+  height: 14.5vh;
+  background-color: white;
+  border-color: black;
+  border-style: solid;
+  border-width: 5px;
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  text-align: center;
+  z-index: 3;
+  visibility: hidden;
+}
+
+/*End screen button used to return to main menu*/
+#gameFinish {
+  width: 20vw;
+  height: 8vh;
+  border-width: 3px;
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -63%);
+  text-align: center;
+  font-size: 35px;
+}

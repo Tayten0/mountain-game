@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html id="levelOne">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <!-- FONT STUFF -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <!-- p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js" integrity="sha512-4P0ZJ49OMXe3jXT+EsEaq82eNwFeyYL81LeHGzGcEhowFbTqeQ80q+NEkgsE8tHPs6aCqvi7U+XWliAjDmT5Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- p5.js COLLISION -->
+    <script defer src="https://unpkg.com/p5.collide2d"></script>
+    <!-- THE P5 GAME STUFF -->
+    <script>
+      //Window dimension variables
+      let w = window.outerWidth;
+      let h = window.outerHeight;
+
+      //Set the player speed
+      let speed = 10;
+      //Create the player object
+      let player = new jumper();
+      //Set the player's lives
+      let lives = 3;
+
+      //Positions of each platform
+      let platformX1 = (w / 2) + 150;
+      let platformY1 = (h / 2) + 25;
+      let platformX2 = w-10;
+      let platformY2 = h;
+      let platformX3 = 1;
+      let platformY3 = 1;
+      let platformX4 = 75;
+      let platformY4 = 154;
+      let platformX5 = 23;
+      let platformY5 = 34;
+      let platformX6 = 232;
+      let platformY6 = 21;
+      let platformX7 = 11;
+      let platformY7 = 69;
+
+      //Collision variables for all 7 obstacles
+      let hitPlatform1 = false;
+      let hitPlatform2 = false;
+      let hitPlatform3 = false;
+      let hitPlatform4 = false;
+      let hitPlatform5 = false;
+      let hitPlatform6 = false;
+      let hitPlatform7 = false;
+
+      //Create the 7 Platforms
+      let platform1 = new platform(1);
+      let platform2 = new platform(2);
+      let platform3 = new platform(3);
+      let platform4 = new platform(4);
+      let platform5 = new platform(5);
+      let platform6 = new platform(6);
+      let platform7 = new platform(7);
+
+
+      //Create the 2 swords
+      let sword1 = new sword(1);
+      let sword2 = new swords(2)
+
+      //Collision variables for the 2 swords
+      let hitSword1 = false;
+      let hitSword2 = false;
+
+      function setup() {
+        //Create a canvas that spans the entire window
+        createCanvas(w,h);
+      };
+
+      function draw() {
+        //Clear the canvas
+        clear();
+        //Update the life counter
+        gid('liveCounterOne').innerHTML = "Lives: " + lives;
+        //Call the function that shows the player
+        player.show();
+        //Call the player update function
+        player.update();
+        //Call the functions that show the platforms
+        platform1.show();
+        platform2.show();
+        platform3.show();
+        platform4.show();
+        platform5.show();
+        platform6.show();
+        platform7.show();
+        //Set the collision parameters for each of the platforms
+        hitPlatform1 = collideRectRect(
+          player.x,
+          player.y,
+          75,
+          75,
+          platform1.x,
+          platform1.y,
+          platform1.width,
+          platform1.height
+        )
+        //Doesn't work
+        if (hitPlatform1 == true) {
+          player.gravity = 0;
+          player.velocity = 0;
+        } else {
+          return
+        }
+      };
+      
+      //Player object
+      function jumper() {
+        //Starting x and y position for player
+        this.x = w / 2;
+        this.y = h / 2;
+        //The force of gravity in the game (rate at which player is dragged to bottom of screen)
+        this.gravity = 1;
+        //Apply opposing force of gravity (lift/player jump height)
+        this.lift = -10;
+        //The current velocity of the player
+        this.velocity = 0;
+        //Function that shows the object (player) on the canvas (screen)
+        this.show = function() {
+          fill('red');
+          rect(this.x,this.y,75,75);
+        };
+        //Function that allows the player to jump
+        this.jump = function() {
+          //Modify the player's position by the lift variable
+          //If the player moves out of the screen if they jump from where they are:
+          if (this.y + this.lift <= 0) {
+            //Set their velocity to 0
+            this.velocity = 0;
+            //Set/keep the player's position at the top of the screen
+            this.y = 0;
+          }
+          else {
+            //Add lift to the player
+            this.velocity = 0;
+            this.velocity += this.lift;
+            //Change the player's position based on their velocity
+            this.y += this.velocity;
+          };
+        };
+        //Build a function that will update itself (the player) in the draw function
+        this.update = function() {
+          //Apply gravity to the player's y-axis
+          //If player isn't on the ground (top of screen - a little bit more than the player's height)
+          if (this.y < h - 80) {
+            //Add gravity to the player
+            this.velocity += this.gravity;
+          }
+          //Apply velocity to the player's y-axis
+          //If player isn't on the ground
+              //*This is kept separate so the player's jumps will be multiplied?
+          if (this.y < h - 80) {
+            //Multiply the velocity
+            this.velocity *= 0.9;
+            //Add velocity to the player's movement
+            this.y += this.velocity;
+          }
+          //Add in the player's movement
+          //If the Spacebar is pressed
+          if (keyIsDown(32)) {
+            //If the player's y-axis is greater than or equal to it's velocity (0)
+            if (this.y >= this.velocity) {
+              //Run the jump function
+              player.jump();
+            }
+          }
+          //If the A key is pressed
+          if (keyIsDown(65)) {
+            //If the player is at the left edge of the screen
+            if (this.x <= 0) {
+              //The player doesn't move
+              return;
+            }
+            //If the player isn't at the left edge of the screen
+            else {
+              //Move the player left by changing it's x-axis
+              this.x -= speed;
+            };
+          }
+          //If the D key is pressed
+          if (keyIsDown(68)) {
+            //If the player is at the right edge of the screen
+            if (this.x >= w - 80) {
+              //The player doesn't move
+              return;
+            }
+            //If the player isn't at the right edge of the screen
+            else {
+              //Move the player right by changing it's x-axis
+              this.x += speed;
+            }
+          }
+          //If the S key is pressed
+          if (keyIsDown(83)) {
+            //If the player is at the bottom edge of the screen
+            if (this.y >= h - 80) {
+              //The player doesn't move
+              return;
+            }
+            //If the player isn't at the bottom edge of the screen
+            else {
+              //Move the player down by changing it's y-axis
+              this.y += speed;
+            }
+          }
+        }
+      };
+
+      //Platform objects
+      function platform(value) {
+        this.width = 150;
+        this.height = 50;
+        let number = value;
+        //eval makes string into a variable
+        this.x = eval("platformX" + number);
+        this.y = eval("platformY" + number);
+        this.show = function() {
+          fill('blue');
+          rect(this.x,this.y,this.width,this.height);
+        }
+      };
+
+      //Sword objects
+      function sword(value) {};
+    </script>
+  </head>
+  <body>
+      <div id="liveBoxOne">
+          <p id="liveCounterOne">Lives: </p>
+      </div>
+  </body>
+</html>
